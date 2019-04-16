@@ -31,4 +31,7 @@ echo KERNEL==\"EtherCAT[0-9]\", MODE=\"0777\" | sudo tee /etc/udev/rules.d/99-et
 sudo udevadm control --reload-rules &&
 echo $ETHERLAB_PREFIX/lib | sudo tee -a /etc/ld.so.conf &&
 sudo ldconfig &&
-echo `echo $USER` hard rtprio 99 | sudo tee -a /etc/security/limits.conf
+echo `echo $USER` hard rtprio 99 | sudo tee -a /etc/security/limits.conf &&
+sudo cp $ETHERLAB_PREFIX/bin/ethercat /usr/local/bin &&
+sudo $ETHERLAB_PREFIX/etc/init.d/ethercat restart &&
+ethercat master
