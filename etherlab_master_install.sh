@@ -23,10 +23,7 @@ echo MASTER0_DEVICE=\"$MASTER0_DEVICE\" | sudo tee $ETHERLAB_PREFIX/etc/ethercat
 echo DEVICE_MODULES=\"generic\" | sudo tee -a $ETHERLAB_PREFIX/etc/ethercat.conf &&
 sudo cp $ETHERLAB_PREFIX/etc/ethercat.conf $ETHERLAB_PREFIX/etc/sysconfig/ethercat &&
 sudo cp $ETHERLAB_PREFIX/etc/sysconfig/ethercat /etc/sysconfig &&
-sudo depmod 
-
-sudo modprobe ec_master &&
-sudo $ETHERLAB_PREFIX/etc/init.d/ethercat start &&
+sudo depmod &&
 echo KERNEL==\"EtherCAT[0-9]\", MODE=\"0777\" | sudo tee /etc/udev/rules.d/99-ethercat.rules &&
 sudo udevadm control --reload-rules &&
 echo $ETHERLAB_PREFIX/lib | sudo tee -a /etc/ld.so.conf &&
