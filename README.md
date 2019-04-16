@@ -8,3 +8,7 @@ ensure your current kernel is the same of *KERNEL_VERSION*, and the *MASTER0_DEV
 `cd ~` 
 
 `./etherlab_master_install.sh`
+
+if need ethercat start with system, add line:
+`<your-etherlab-prefix>/etc/init.d/ethercat restart` 
+to /etc/rc.local
