@@ -35,6 +35,6 @@ echo `echo $USER` hard rtprio 99 | sudo tee -a /etc/security/limits.conf &&
 sudo cp $ETHERLAB_PREFIX/bin/ethercat /usr/local/bin &&
 sudo $ETHERLAB_PREFIX/etc/init.d/ethercat restart &&
 sleep 1
-set -e # stop show the command that will execute
+set +x # stop show the command that will execute
 echo -e "\n>>>>>>>>>> Test <<<<<<<<<<\n"
 ethercat master
