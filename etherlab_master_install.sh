@@ -19,7 +19,7 @@ make all modules &&
 sudo make install &&
 sudo make modules_install &&
 sudo mkdir -p /etc/sysconfig &&
-echo MASTER0_DEVICE=\"$MASTER0_DEVICE_MAC\" | sudo tee $ETHERLAB_PREFIX/etc/ethercat.conf &&
+echo MASTER0_DEVICE=\"$MASTER0_DEVICE\" | sudo tee $ETHERLAB_PREFIX/etc/ethercat.conf &&
 echo DEVICE_MODULES=\"generic\" | sudo tee -a $ETHERLAB_PREFIX/etc/ethercat.conf &&
 sudo cp $ETHERLAB_PREFIX/etc/ethercat.conf $ETHERLAB_PREFIX/etc/sysconfig/ethercat &&
 sudo cp $ETHERLAB_PREFIX/etc/sysconfig/ethercat /etc/sysconfig &&
