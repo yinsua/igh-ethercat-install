@@ -18,7 +18,7 @@ GRUB_HIDDEN_TIMEOUT=false改为true
 
 ## 2. 执行脚本
 ##### a. 我使用的网卡是Intel PRO/1000 82571千兆双网口网卡，因此igh_install_e1000e_lowlatency.sh文件里面是按照此硬件来配置的。  
-##### b. 编辑igh_install_e1000e_lowlatency.sh文件，将MASTER0_DEVICE修改为你对应网卡网口的MAC地址，将驱动类型修改为你的网卡的类型，不确定就修改为generic  
+##### b. 编辑igh_install_e1000e_lowlatency.sh文件，将MASTER_DEVICE修改为你对应网卡网口的MAC地址，将驱动类型修改为你的网卡的类型，不确定就修改为generic  
 `cd ~`  
 `chmod +x igh_install_e1000e_lowlatency.sh`  
 `./igh_install_e1000e_lowlatency.sh`  
@@ -27,7 +27,3 @@ GRUB_HIDDEN_TIMEOUT=false改为true
 ##### a. 执行过多次脚本之后，建议清理一下/etc/ld.so.conf文件，去掉重复行  
 ##### b. 如果想要开机ethercat服务自启动，则在/etc/rc.local文件中加入如下行：  
 `<your-etherlab-prefix>/etc/init.d/ethercat restart`   
-##### c. 如需使用多个网口，则修改/etc/sysconfig/ethercat文件和/opt/etherlab/etc/ethercat.conf文件，例如：  
-`MASTER0_DEVICE="12:34:56:78:99:ff"`  
-`MASTER1_DEVICE="12:34:56:78:99:00"`  
-类型也在这两个文件里修改，例如将e1000e修改为generic  
