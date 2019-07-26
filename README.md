@@ -8,7 +8,7 @@
 GRUB_HIDDEN_TIMEOUT=true改为false  
 保存并退出编辑，执行`sudo update-grub`  
 ##### d. 重启：`sudo reboot`，重新进入系统时选择Advanced一项，而非默认Ubuntu一项，然后选择指定内核一项，启动系统  
-##### e. 如果不想每次都选择系统启动，可以通过`sudo apt-get remove linux-image-<version>`来卸载内核，当然最好也卸载相应掉header，使用`sudo update-grub`可以查看当前可供启动的内核列表，或者你可以通过其他方式（例如编辑/etc/default/grub文件指定默认启动的内核）来实现自动启动指定内核。  
+##### e. 如果不想每次都选择系统启动，可以通过`sudo apt-get remove linux-image-<version>`来卸载内核，当然最好也卸载掉相应header，使用`sudo update-grub`可以查看当前可供启动的内核列表，或者你可以通过其他方式（例如编辑/etc/default/grub文件指定默认启动的内核）来实现自动启动指定内核。  
 如果发现有些内核始终没办法从`sudo update-grub`显示的列表中去掉，则检查一下是否有linux-headers-unsigned-xxx未卸载干净。  
 ##### f. 卸载完成后编辑/etc/default/grub还原配置：  
 取消注释GRUB_HIDDEN_TIMEOUT=0  
