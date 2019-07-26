@@ -2,6 +2,7 @@
 export KERNEL_VERSION="4.4.0-140-lowlatency"
 export MASTER0_DEVICE="00:15:17:de:77:ee"
 export ETHERLAB_PREFIX="/opt/etherlab"
+export DRIVER_TYPE="e1000e"
 
 set -ex &&
 sudo apt-get install -y build-essential &&
@@ -20,7 +21,7 @@ sudo make install &&
 sudo make modules_install &&
 sudo mkdir -p /etc/sysconfig &&
 echo MASTER0_DEVICE=\"$MASTER0_DEVICE\" | sudo tee $ETHERLAB_PREFIX/etc/ethercat.conf &&
-echo DEVICE_MODULES=\"generic\" | sudo tee -a $ETHERLAB_PREFIX/etc/ethercat.conf &&
+echo DEVICE_MODULES=\"$DRIVER_TYPE\" | sudo tee -a $ETHERLAB_PREFIX/etc/ethercat.conf &&
 sudo cp $ETHERLAB_PREFIX/etc/ethercat.conf $ETHERLAB_PREFIX/etc/sysconfig/ethercat &&
 sudo cp $ETHERLAB_PREFIX/etc/sysconfig/ethercat /etc/sysconfig &&
 sudo depmod &&
